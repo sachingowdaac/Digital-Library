@@ -8,7 +8,7 @@ const NavBar = ({ onBookSearch }) => {
     onBookSearch(book);
   };
   return (
-    <nav className=" bg-purple-600 p-2 mt-0 fixed w-full top-0 shadow">
+    <nav className="bg-purple-600 p-2 mt-0 fixed w-full top-0 shadow">
       <ul className="flex justify-end space-x-5 items-center text-purple-300 font-bold">
         <li className="mr-auto">
           <NavLink
@@ -23,7 +23,7 @@ const NavBar = ({ onBookSearch }) => {
           <NavLink
             exact
             to="/"
-            activeClassName=" text-purple-100"
+            activeClassName="text-purple-100"
             className="hover:text-purple-200 p-2"
           >
             Home
@@ -33,7 +33,7 @@ const NavBar = ({ onBookSearch }) => {
           <NavLink
             exact
             to="/about"
-            activeClassName=" text-purple-100"
+            activeClassName="text-purple-100"
             className="hover:text-purple-200 p-2"
           >
             About
@@ -45,7 +45,7 @@ const NavBar = ({ onBookSearch }) => {
               onChange={handleChange}
               type="text"
               placeholder="Search..."
-              className=" p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
+              className="p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
             />
           </form>
         </li>
