@@ -4,7 +4,7 @@ import uuid from 'react-uuid';
 const Home = ({ books }) => {
   return (
     <div className="flex flex-wrap p-5 justify-center">
-      {books.map((book, index) => {
+      {books.map((book) => {
         const { author, country, imageLink, pages, link, title, year } = book;
         return (
           <div
