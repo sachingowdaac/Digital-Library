@@ -8,7 +8,7 @@ const Home = ({ books }) => {
         const { author, country, imageLink, pages, link, title, year } = book;
         return (
           <div
-            key={uuid}
+            key={uuid()}
             className="max-w-sm m-3 bg-orange-600 rounded-lg shadow-xl overflow-hidden"
           >
             <a href={link} rel="noreferrer" target="_blank">
