@@ -52,7 +52,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
         <li>
           <button
             className="p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
-            onClick={() => onThemeChange()}
+            onClick={onThemeChange}
           >
             {darkTheme ? <BrightnessHighIcon /> : <Brightness4Icon />}
           </button>
