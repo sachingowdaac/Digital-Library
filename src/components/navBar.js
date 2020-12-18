@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
 
-const NavBar = ({ onBookSearch }) => {
+const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
   const handleChange = (event) => {
-    event.preventDefault();
     const book = event.target.value;
     onBookSearch(book);
   };
@@ -43,11 +44,18 @@ const NavBar = ({ onBookSearch }) => {
           <form>
             <input
               onChange={handleChange}
-              type="text"
               placeholder="Search..."
               className="p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
             />
           </form>
+        </li>
+        <li>
+          <button
+            className="p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
+            onClick={() => onThemeChange()}
+          >
+            {darkTheme ? <BrightnessHighIcon /> : <Brightness4Icon />}
+          </button>
         </li>
       </ul>
     </nav>
