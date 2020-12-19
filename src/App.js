@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={darkTheme}>
-      <div className="flex flex-col mt-20 min-h-screen">
+      <div className="flex flex-col min-h-screen">
         <Router>
           <NavBar
             onBookSearch={searchBook}

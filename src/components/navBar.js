@@ -9,8 +9,8 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
     onBookSearch(book);
   };
   return (
-    <nav className="bg-purple-600 p-2 mt-0 fixed w-full top-0 shadow">
-      <ul className="flex justify-end space-x-5 items-center text-purple-300 font-bold">
+    <nav className=" bg-purple-600 p-2 text-center sticky top-0  text-purple-800 shadow">
+      <ul className="flex flex-wrap justify-end space-x-5 items-center text-purple-300 font-bold">
         <li className="mr-auto">
           <NavLink
             exact

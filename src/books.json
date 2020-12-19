@@ -31,14 +31,14 @@
       "year": 1315
     },
     {
-      "author": "Unknown",
+      "author": "Maureen Galley",
       "country": "Sumer and Akkadian Empire",
       "imageLink": "images/the-epic-of-gilgamesh.jpg",
       "language": "Akkadian",
       "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh\n",
       "pages": 160,
       "title": "The Epic Of Gilgamesh",
-      "year": -1700
+      "year": 1700
     },
     {
       "author": "Unknown",
@@ -48,7 +48,7 @@
       "link": "https://en.wikipedia.org/wiki/Book_of_Job\n",
       "pages": 176,
       "title": "The Book Of Job",
-      "year": -600
+      "year": 600
     },
     {
       "author": "Unknown",
@@ -61,13 +61,13 @@
       "year": 1200
     },
     {
-      "author": "Unknown",
+      "author": "Saga",
       "country": "Iceland",
       "imageLink": "images/njals-saga.jpg",
       "language": "Old Norse",
       "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga\n",
       "pages": 384,
-      "title": "Nj\u00e1l's Saga",
+      "title": "Njl's Saga",
       "year": 1350
     },
     {

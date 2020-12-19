@@ -20,15 +20,13 @@ const Home = ({ books }) => {
                 />
               </div>
               <div className="p-2">
-                <h1 className="text-pink-200 text-xl font-serif">
-                  Author: {author}
-                </h1>
-                <p className="font-bold text-purple-900 font-normal italic text-xl">
-                  Titel: {title}
+                <h1 className="text-pink-200 text-xl">Author: {author}</h1>
+                <p className="font-bold text-purple-900 font-normal text-xl">
+                  Title: {title}
                 </p>
-                <div className="font-hairline font-black inline-block">
-                  <span>Year-{year}</span>
-                  <span>Country-{country}</span>
+                <div className="font-black inline-block">
+                  <span>Year-{year} </span>
+                  <span>Country-{country} </span>
                   <span>Pages-{pages}</span>
                 </div>
               </div>
