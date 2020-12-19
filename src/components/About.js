@@ -3,8 +3,8 @@ import { ThemeContext } from '../App';
 const About = () => {
   const darkTheme = useContext(ThemeContext);
   const themeStyles = {
-    backgroundColor: darkTheme ? '#fff' : '#ccf',
-    color: darkTheme ? '#333' : 'red',
+    backgroundColor: darkTheme ? '#fff' : 'black',
+    color: darkTheme ? 'black' : '#fff',
   };
   return (
     <div
