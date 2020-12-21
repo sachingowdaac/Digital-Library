@@ -9,7 +9,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
     onBookSearch(book);
   };
   return (
-    <nav className="flex items-center justify-around w-full fixed top-0 h-20 bg-purple-600 p-2 text-purple-800 shadow">
+    <nav className="flex justify-around items-center  w-full fixed top-0 h-20 bg-purple-600 p-2 text-purple-800 shadow">
       <div>
         <NavLink
           exact
@@ -46,7 +46,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
               <input
                 onChange={handleChange}
                 placeholder="Search..."
-                className="p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
+                className="w-20 sm:w-full p-1 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 bg-transparent bg-purple-800 text-white hover:bg-purple-500"
               />
             </form>
           </li>
