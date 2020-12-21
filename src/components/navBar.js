@@ -14,13 +14,13 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
         <NavLink
           exact
           to="/"
-          className="font-bold text-2xl text-blue-200 font-serif"
+          className="font-bold sm:text-2xl text-blue-200 font-serif"
         >
           Book's Library
         </NavLink>
       </div>
       <div>
-        <ul className="flex items-center space-x-3">
+        <ul className="flex items-center space-x-1">
           <li>
             <NavLink
               exact
