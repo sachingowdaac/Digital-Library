@@ -3,13 +3,13 @@ import uuid from 'react-uuid';
 
 const Home = ({ books }) => {
   return (
-    <div className="flex flex-wrap w-4/5 mx-auto p-5 justify-center">
+    <div className="flex flex-wrap items-center justify-center mt-20">
       {books.map((book) => {
         const { author, country, imageLink, pages, link, title, year } = book;
         return (
           <div
             key={uuid()}
-            className="w-40 m-3 bg-orange-600 rounded-lg shadow-xl overflow-hidden"
+            className="m-3 bg-orange-600 rounded-lg shadow-xl overflow-hidden"
           >
             <a href={link} rel="noreferrer" target="_blank">
               <div>

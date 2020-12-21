@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div
       style={themeStyles}
-      className="container-about p-2 w-4/5 mx-auto m-5 justify-center justify-items-center text-justify"
+      className="container-about p-2 mt-20 justify-center justify-items-center text-justify"
     >
       <p className="font-serif">
         Book's Library is the world's leading site for book recommendations by
