@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import About from './components/About';
 import Footer from './components/footer';
@@ -21,10 +21,14 @@ const App = () => {
       );
     });
   };
-
+  const darkThemes = useContext(ThemeContext);
+  const themeStyles = {
+    backgroundColor: darkTheme ? '#fff' : '#312b47',
+    color: darkTheme ? 'black' : '#fff',
+  };
   return (
-    <ThemeContext.Provider value={darkTheme}>
-      <div>
+    <ThemeContext.Provider value={darkThemes}>
+      <div className="book-container " style={themeStyles}>
         <Router>
           <NavBar
             onBookSearch={searchBook}

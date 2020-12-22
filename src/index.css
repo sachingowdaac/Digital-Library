@@ -15,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.dark-mode {
+  bottom: 10px;
+  right: 15px;
+}
+.book-container {
+  margin-top: 0%;
+}

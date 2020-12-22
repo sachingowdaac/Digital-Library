@@ -1,17 +1,9 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../App';
+import React from 'react';
+
 const About = () => {
-  const darkTheme = useContext(ThemeContext);
-  const themeStyles = {
-    backgroundColor: darkTheme ? '#fff' : 'black',
-    color: darkTheme ? 'black' : '#fff',
-  };
   return (
-    <div
-      style={themeStyles}
-      className="container-about p-2 mt-20 justify-center justify-items-center text-justify"
-    >
-      <p className="font-serif">
+    <div className="container-about min-h-0 font-serif mb-5 p-2 mt-20 justify-center justify-items-center text-justify w-4/5 mx-auto">
+      <p>
         Book's Library is the world's leading site for book recommendations by
         thought leaders, helping you find the most recommended books for any
         subject.
