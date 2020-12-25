@@ -4,6 +4,7 @@ import About from './components/About';
 import Footer from './components/footer';
 import Home from './components/Home';
 import NavBar from './components/navBar';
+import SignUp from './components/signup';
 import Books from './books.json';
 export const ThemeContext = React.createContext();
 
@@ -38,6 +39,9 @@ const App = () => {
           <Switch>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
             </Route>
             <Route path="/">
               <Home books={books} />

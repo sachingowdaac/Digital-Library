@@ -51,6 +51,16 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
                 />
               </form>
             </li>
+            <li>
+              <NavLink
+                exact
+                to="/signup"
+                activeClassName="text-purple-100"
+                className="text-black hover:text-purple-200 p-2"
+              >
+                Sign Up
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

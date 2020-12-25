@@ -1,6 +1,7 @@
 import React from 'react';
 
 const About = () => {
+  console.log(process.env.REACT_APP_FIREBASE_API_KEY);
   return (
     <div className="container-about min-h-0 font-serif mb-5 p-2 mt-20 justify-center justify-items-center text-justify w-4/5 mx-auto">
       <p>
