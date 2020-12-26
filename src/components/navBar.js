@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { SignOut } from './authentication';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 
@@ -51,16 +52,38 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
                 />
               </form>
             </li>
-            <li>
-              <NavLink
-                exact
-                to="/signup"
-                activeClassName="text-purple-100"
-                className="text-black hover:text-purple-200 p-2"
-              >
-                Sign Up
-              </NavLink>
-            </li>
+            <div>
+              <ul className="flex">
+                <li>
+                  <NavLink
+                    exact
+                    to="/signup"
+                    activeClassName="text-purple-100"
+                    className="text-black hover:text-purple-200 p-2"
+                  >
+                    SignUp
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    exact
+                    to="/login"
+                    activeClassName="text-purple-100"
+                    className="text-black hover:text-purple-200 p-2"
+                  >
+                    Login
+                  </NavLink>
+                </li>
+                <li>
+                  <button
+                    className="text-black hover:text-purple-200 p-2 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 focus:text-white bg-transparent bg-purple-800 hover:bg-purple-500"
+                    onClick={SignOut}
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
           </ul>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/database';
+import 'firebase/firebase-firestore';
 
-const app = firebase.initializeApp({
+var firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'digital-book-library.firebaseapp.com',
   projectId: 'digital-book-library',
@@ -10,8 +10,7 @@ const app = firebase.initializeApp({
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
-});
-
-export const auth = app.auth();
-export const db = app.firestore();
-export default app;
+};
+firebase.initializeApp(firebaseConfig);
+export const auth = firebase.auth();
+export const db = firebase.firestore();

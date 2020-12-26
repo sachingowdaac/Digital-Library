@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Home from './components/Home';
 import NavBar from './components/navBar';
 import SignUp from './components/signup';
+import Login from './components/login';
 import Books from './books.json';
 export const ThemeContext = React.createContext();
 
@@ -42,6 +43,9 @@ const App = () => {
             </Route>
             <Route path="/signup">
               <SignUp />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/">
               <Home books={books} />
