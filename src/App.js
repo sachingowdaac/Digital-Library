@@ -12,6 +12,7 @@ export const ThemeContext = React.createContext();
 const App = () => {
   const [books, setBooks] = useState(Books);
   const [darkTheme, setDarkTheme] = useState(true);
+  const [userIn, setUserIn] = useState();
 
   const changeTheme = () => {
     setDarkTheme((preDarkTheme) => !preDarkTheme);
@@ -28,6 +29,9 @@ const App = () => {
     backgroundColor: darkTheme ? '#fff' : '#312b47',
     color: darkTheme ? 'black' : '#fff',
   };
+  const user = (user) => {
+    setUserIn(user);
+  };
   return (
     <ThemeContext.Provider value={darkThemes}>
       <div className="book-container " style={themeStyles}>
@@ -35,6 +39,7 @@ const App = () => {
           <NavBar
             onBookSearch={searchBook}
             onThemeChange={changeTheme}
+            usersIs={user}
             darkTheme={darkTheme}
           />
           <Switch>
@@ -44,7 +49,7 @@ const App = () => {
             <Route path="/signup">
               <SignUp />
             </Route>
-            <Route path="/login">
+            <Route path={userIn ? '/login' : '/'}>
               <Login />
             </Route>
             <Route path="/">

@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SignOut } from './authentication';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import { auth } from '../firebase';
 
-const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
+const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
+  const [user, setUser] = useState();
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('user loged in');
+      setUser(true);
+    } else {
+      console.log('user sign out');
+      setUser(false);
+    }
+    usersIs(user);
+  });
   const handleChange = (event) => {
     const book = event.target.value;
     onBookSearch(book);
   };
+
   return (
     <nav className="w-full h-20 mb-0 fixed top-0 bg-purple-600 text-purple-800 shadow">
       <div className="flex items-center justify-around sm:justify-between p-3 w-4/5 mx-auto">
@@ -54,7 +67,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
             </li>
             <div>
               <ul className="flex">
-                <li>
+                <li className={user ? 'hidden' : 'block'}>
                   <NavLink
                     exact
                     to="/signup"
@@ -64,17 +77,17 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme }) => {
                     SignUp
                   </NavLink>
                 </li>
-                <li>
+                <li className={user ? 'hidden' : 'block'}>
                   <NavLink
                     exact
-                    to="/login"
+                    to={user ? '/login' : '/'}
                     activeClassName="text-purple-100"
                     className="text-black hover:text-purple-200 p-2"
                   >
                     Login
                   </NavLink>
                 </li>
-                <li>
+                <li className={user ? 'block' : 'hidden'}>
                   <button
                     className="text-black hover:text-purple-200 p-2 rounded-full focus:outline-none focus:shadow-outline focus:border-purple-500 focus:text-white bg-transparent bg-purple-800 hover:bg-purple-500"
                     onClick={SignOut}
