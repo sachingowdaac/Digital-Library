@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SignUpUser } from './authentication';
 
 const SignUp = () => {
+  const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
   const [users, setUsers] = useState({});
 
   const handleChange = ({ target }) => {
@@ -14,7 +15,13 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    SignUpUser(users.email, users.password);
+    if (!regex.test(users.password)) {
+      alert(
+        'Password should Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special characte'
+      );
+    } else {
+      SignUpUser(users.email, users.password);
+    }
     setUsers({});
   };
   return (
