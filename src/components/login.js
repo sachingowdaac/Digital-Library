@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { LoginUser } from './authentication';
+import { LoginWithGmail } from './authentication';
+import EmailIcon from '@material-ui/icons/Email';
 
 const Login = () => {
   const [users, setUsers] = useState({});
@@ -16,6 +18,9 @@ const Login = () => {
     e.preventDefault();
     LoginUser(users.email, users.password);
     setUsers({});
+  };
+  const handleClick = () => {
+    LoginWithGmail();
   };
   return (
     <div className="min-h-screen mt-20 flex flex-col items-center justify-center">
@@ -56,6 +61,15 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="mt-5">
+            <button
+              onClick={handleClick}
+              className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white"
+            >
+              <EmailIcon />
+              <span className="mx-3">Login with Google</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
