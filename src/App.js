@@ -34,7 +34,7 @@ const App = () => {
   };
   return (
     <ThemeContext.Provider value={darkThemes}>
-      <div className="book-container " style={themeStyles}>
+      <div style={themeStyles}>
         <Router>
           <NavBar
             onBookSearch={searchBook}

@@ -6,21 +6,23 @@ export const SignUpUser = (email, password) => {
     alert(error.message);
   });
 };
-// "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$"
 export const LoginWithGmail = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(provider);
 };
 
 export const LoginUser = (email, password) => {
-  return auth.signInWithEmailAndPassword(email, password).catch((error) => {
-    var errorCode = error.code;
-    if (errorCode === 'auth/wrong-password') {
-      alert('Useremail and password does not match');
-    } else if (errorCode === 'auth/user-not-found') {
-      alert(error.message);
-    }
-  });
+  return auth
+    .signInWithEmailAndPassword(email, password)
+    .then((data) => console.log(data))
+    .catch((error) => {
+      var errorCode = error.code;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Useremail and password does not match');
+      } else if (errorCode === 'auth/user-not-found') {
+        alert(error.message);
+      }
+    });
 };
 
 export const SignOut = (e) => {

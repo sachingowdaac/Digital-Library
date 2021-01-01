@@ -17,7 +17,7 @@ const SignUp = () => {
     e.preventDefault();
     if (!regex.test(users.password)) {
       alert(
-        'Password should Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special characte'
+        'Password should Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special characte'
       );
     } else {
       SignUpUser(users.email, users.password);
@@ -25,7 +25,7 @@ const SignUp = () => {
     setUsers({});
   };
   return (
-    <div className="min-h-screen mt-20 flex flex-col items-center justify-center">
+    <div className="min-h-0 mt-16 mb-5 flex flex-col items-center justify-center">
       <div className="sm:max-w-md max-w-xs  bg-gray-200 w-full mx-auto rounded overflow-hidden">
         <div className="text-center font-medium text-xl m-2 text-sm font-bold text-gray-800">
           Sign Up

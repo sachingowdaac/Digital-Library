@@ -27,7 +27,7 @@ const Home = ({ books }) => {
     setExpanded(!expanded);
   };
   return (
-    <div className="flex flex-wrap items-center justify-center mt-20 w-4/5 mx-auto">
+    <div className="flex flex-wrap min-h-0 mb-5 items-center justify-center mt-16 w-4/5 mx-auto">
       {books.map((book) => {
         const { author, country, imageLink, pages, link, title, year } = book;
         return (
