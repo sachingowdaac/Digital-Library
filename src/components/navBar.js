@@ -24,7 +24,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-white border">
+    <nav className="fixed top-0 w-full bg-white dark:bg-gray-900 border h-16">
       <div className="flex flex-col items-center mx-auto sm:w-4/5 p-2">
         <div className="flex w-full items-center justify-between ">
           <div>
@@ -57,7 +57,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
               <input
                 onChange={handleChange}
                 placeholder="Search..."
-                className="w-20 sm:w-full p-1 rounded-full focus:outline-none shadow-outline  text-black hover:bg-purple-500"
+                className="w-20 sm:w-full p-1 rounded-full border  focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
               />
             </form>
           </div>

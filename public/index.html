@@ -14,8 +14,18 @@
       href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
       rel="stylesheet"
     />
-
     <title>Book Library</title>
+    <script>
+      if (
+        localStorage.theme === 'dark' ||
+        (!('theme' in localStorage) &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ) {
+        document.querySelector('html').classList.add('dark');
+      } else {
+        document.querySelector('html').classList.remove('dark');
+      }
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
