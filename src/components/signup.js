@@ -25,7 +25,7 @@ const SignUp = () => {
     setUsers({});
   };
   return (
-    <div className="min-h-0 mt-16 mb-5 flex flex-col items-center justify-center">
+    <div className="min-h-screen mt-16 mb-5 flex flex-col items-center justify-center">
       <div className="sm:max-w-md max-w-xs  bg-gray-200 w-full mx-auto rounded overflow-hidden">
         <div className="text-center font-medium text-xl m-2 text-sm font-bold text-gray-800">
           Sign Up

@@ -47,7 +47,7 @@ const App = () => {
     setUserIn(user);
   };
   return (
-    <div className="bg-white text-black dark:bg-gray-900 dark:text-white ">
+    <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
       <Router>
         <NavBar
           onBookSearch={searchBook}
