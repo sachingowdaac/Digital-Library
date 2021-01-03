@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { LoginUser } from './authentication';
 import { LoginWithGmail } from './authentication';
-import EmailIcon from '@material-ui/icons/Email';
 
 const Login = () => {
   const [users, setUsers] = useState({});
@@ -24,9 +23,9 @@ const Login = () => {
     console.log({ res });
   };
   return (
-    <div className="min-h-screen mt-16 mb-5 flex flex-col items-center justify-center">
+    <div className="p-5 mt-16 mb-5 flex flex-col items-center justify-center">
       <div className="sm:max-w-md max-w-xs  bg-gray-200 w-full mx-auto rounded overflow-hidden">
-        <div className="text-center font-medium text-xl m-2 text-sm font-bold text-gray-800">
+        <div className="text-center  m-2 text-sm font-bold text-gray-800">
           Login
         </div>
         <div className="max-w-md w-full mx-auto mt-4 p-8 border border-gray-300">
@@ -51,7 +50,7 @@ const Login = () => {
               name="password"
               value={users.password || ''}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-400 rounded mt-1"
+              className="dark:text-black w-full p-2 border border-gray-400 rounded mt-1"
             />
             <div>
               <button
@@ -65,9 +64,14 @@ const Login = () => {
           <div className="mt-5">
             <button
               onClick={handleClick}
-              className="w-full py-2 px-4 bg-blue-600 hover:bg-blue-700 rounded-md text-white"
+              className="flex justify-center items-center w-full py-2 px-4 hover:bg-blue-700 rounded bg-gray-100 dark:text-black"
             >
-              <EmailIcon />
+              <span>
+                <img
+                  src="https://img.icons8.com/fluent/48/000000/google-logo.png"
+                  alt="google"
+                />
+              </span>
               <span className="mx-3">Login with Google</span>
             </button>
           </div>

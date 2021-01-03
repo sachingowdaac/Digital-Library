@@ -9,12 +9,25 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
   const [user, setUser] = useState();
   console.log({ auth });
   auth.onAuthStateChanged((user) => {
+    let sessionTimeout = null;
+
     if (user) {
       console.log('user loged in');
       setUser(true);
+      user.getIdTokenResult().then((idTokenResult) => {
+        console.log(idTokenResult);
+        const authTime = idTokenResult.claims.auth_time * 1000;
+        const sessionDuration = 1000 * 60;
+        const millisecondsUntilExpiration =
+          sessionDuration - (Date.now() - authTime);
+        console.log(millisecondsUntilExpiration);
+        setTimeout(() => auth.signOut(), millisecondsUntilExpiration);
+      });
     } else {
       console.log('user sign out');
       setUser(false);
+      sessionTimeout && clearTimeout(sessionTimeout);
+      sessionTimeout = null;
     }
     usersIs(user);
   });
@@ -64,7 +77,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
           <div className={user ? 'hidden' : 'block'}>
             <NavLink
               exact
-              to="/signup"
+              to={user ? '/' : '/signup'}
               activeClassName="font-bold"
               className="font-bold-400 font-serif hover:text-purple-200"
             >
@@ -74,7 +87,7 @@ const NavBar = ({ onBookSearch, onThemeChange, darkTheme, usersIs }) => {
           <div className={user ? 'hidden' : 'block'}>
             <NavLink
               exact
-              to={user ? '/login' : '/'}
+              to={user ? '/' : '/login'}
               activeClassName="font-bold"
               className="font-bold-400 font-serif hover:text-purple-200"
             >

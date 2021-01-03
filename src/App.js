@@ -59,10 +59,10 @@ const App = () => {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/signup">
+          <Route path={userIn ? '/' : '/signup'}>
             <SignUp />
           </Route>
-          <Route path={userIn ? '/login' : '/'}>
+          <Route path={userIn ? '/' : '/login'}>
             <Login />
           </Route>
           <Route path="/">

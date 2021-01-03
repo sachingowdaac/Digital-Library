@@ -25,9 +25,9 @@ const SignUp = () => {
     setUsers({});
   };
   return (
-    <div className="min-h-screen mt-16 mb-5 flex flex-col items-center justify-center">
+    <div className="p-5 mt-16 mb-5 flex flex-col items-center justify-center">
       <div className="sm:max-w-md max-w-xs  bg-gray-200 w-full mx-auto rounded overflow-hidden">
-        <div className="text-center font-medium text-xl m-2 text-sm font-bold text-gray-800">
+        <div className="text-center  m-2 text-sm font-bold text-gray-800">
           Sign Up
         </div>
         <div className="max-w-md w-full mx-auto mt-4 p-8 border border-gray-300">
@@ -48,11 +48,11 @@ const SignUp = () => {
             </label>
             <input
               type="password"
-              placeholder="*******"
+              placeholder="********"
               name="password"
               value={users.password || ''}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-400 rounded mt-1"
+              className="dark:text-black w-full p-2 border border-gray-400 rounded mt-1"
             />
             <div className="flex items-center justify-between hidden">
               <div className="flex items-center">
