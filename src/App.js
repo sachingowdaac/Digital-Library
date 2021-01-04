@@ -42,12 +42,12 @@ const App = () => {
       );
     });
   };
-
+  console.log(userIn);
   const user = (user) => {
     setUserIn(user);
   };
   return (
-    <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
+    <div className="bg-white text-black dark:bg-gray-800 dark:text-white">
       <Router>
         <NavBar
           onBookSearch={searchBook}
@@ -59,10 +59,10 @@ const App = () => {
           <Route path="/about">
             <About />
           </Route>
-          <Route path={userIn ? '/' : '/signup'}>
+          <Route path="/signup">
             <SignUp />
           </Route>
-          <Route path={userIn ? '/' : '/login'}>
+          <Route path="/login">
             <Login />
           </Route>
           <Route path="/">

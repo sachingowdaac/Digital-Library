@@ -33,7 +33,7 @@ const Home = ({ books }) => {
         return (
           <div
             key={uuid()}
-            className="bg-orange-600 w-48 m-3 rounded-lg shadow-xl overflow-hidden"
+            className="bg-orange-600 w-48 m-3 rounded-lg shadow-2xl overflow-hidden"
           >
             <div>
               <img
@@ -43,9 +43,7 @@ const Home = ({ books }) => {
               />
             </div>
             <div className="p-2">
-              <h1 className="text-pink-200 text-xl overflow-hidden">
-                Author: {author}
-              </h1>
+              <h1 className="text-xl overflow-hidden">Author: {author}</h1>
               <IconButton
                 className={clsx(classes.expand, {
                   [classes.expandOpen]: expanded,
@@ -58,7 +56,7 @@ const Home = ({ books }) => {
               </IconButton>
               <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <a href={link} rel="noreferrer" target="_blank">
-                  <p className="font-bold text-purple-900 font-normal text-xl">
+                  <p className="font-bold text-purple-900  text-xl">
                     Title: {title}
                   </p>
                 </a>
