@@ -27,17 +27,17 @@ const Home = ({ books }) => {
     setExpanded(!expanded);
   };
   return (
-    <div className="flex flex-wrap min-h-0 mb-5 items-center justify-center mt-16 w-4/5 mx-auto">
+    <div className="flex flex-wrap min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
       {books.map((book) => {
         const { author, country, imageLink, pages, link, title, year } = book;
         return (
           <div
             key={uuid()}
-            className="bg-orange-600 w-48 m-3 rounded-lg shadow-2xl overflow-hidden"
+            className="bg-orange-600 w-80 md:w-48 m-5 rounded-lg shadow-2xl overflow-hidden"
           >
             <div>
               <img
-                className="object-fit h-52 w-full overflow-hidden"
+                className="object-fit h-64 w-full overflow-hidden"
                 src={imageLink}
                 alt={author}
               />

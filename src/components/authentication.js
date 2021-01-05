@@ -6,6 +6,7 @@ export const SignUpUser = (email, password) => {
     alert(error.message);
   });
 };
+
 export const LoginWithGmail = () => {
   var provider = new firebase.auth.GoogleAuthProvider();
   return auth.signInWithPopup(provider);
