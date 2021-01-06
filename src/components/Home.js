@@ -37,7 +37,8 @@ const Home = ({ books }) => {
           >
             <div>
               <img
-                className="object-fit h-64 w-full overflow-hidden"
+                loading="lazy"
+                className="object-fit h-64 w-80 md:w-48 overflow-hidden"
                 src={imageLink}
                 alt={author}
               />
