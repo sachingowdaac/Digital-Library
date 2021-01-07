@@ -33,7 +33,7 @@ const Home = ({ books }) => {
         return (
           <div
             key={uuid()}
-            className="bg-orange-600 w-80 md:w-48 m-5 rounded-lg shadow-2xl overflow-hidden"
+            className="grid w-80 md:w-48 m-5 rounded-lg shadow-2xl overflow-hidden"
           >
             <div>
               <img
