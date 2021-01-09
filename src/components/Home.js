@@ -1,78 +1,33 @@
-import React from 'react';
-import uuid from 'react-uuid';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Collapse from '@material-ui/core/Collapse';
+import React, { useState } from 'react';
+import BooksComponent from './books';
 
-const useStyles = makeStyles((theme) => ({
-  expand: {
-    transform: 'rotate(0deg)',
-    marginRight: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-}));
+const Home = () => {
+  const [query, setQuery] = useState('');
 
-const Home = ({ books }) => {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setQuery({
+      [name]: value.toLowerCase(),
+    });
   };
   return (
-    <div className="flex flex-wrap min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
-      {books.map((book) => {
-        const { author, country, imageLink, pages, link, title, year } = book;
-        return (
-          <div
-            key={uuid()}
-            className="grid w-80 md:w-48 m-5 rounded-lg shadow-2xl overflow-hidden"
-          >
-            <div>
-              <img
-                loading="lazy"
-                className="object-fit h-64 w-80 md:w-48 overflow-hidden"
-                src={imageLink}
-                alt={author}
-              />
-            </div>
-            <div className="p-2">
-              <h1 className="text-xl overflow-hidden">Author: {author}</h1>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <a href={link} rel="noreferrer" target="_blank">
-                  <p className="font-bold text-purple-900  text-xl">
-                    Title: {title}
-                  </p>
-                </a>
-                <div className="font-black">
-                  <span>Year-{year} </span>
-                  <span>Country-{country} </span>
-                  <span>Pages-{pages}</span>
-                </div>
-              </Collapse>
-            </div>
-          </div>
-        );
-      })}
+    <div className="min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
+      <div className="fixed w-full md:w-4/5 p-1">
+        <form>
+          <input
+            type="text"
+            name="author"
+            value={query.author || ''}
+            onChange={handleChange}
+            placeholder="Search..."
+            className="text-white bg-gray-800 w-full p-1 rounded border  focus:outline-none focus:ring-2 focus:ring-purple-600"
+          />
+        </form>
+      </div>
+      <div>
+        <BooksComponent query={query} />
+      </div>
     </div>
   );
 };
-
 export default Home;
