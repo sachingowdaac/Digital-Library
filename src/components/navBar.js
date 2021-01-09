@@ -111,7 +111,7 @@ const NavBar = () => {
             </button>
           </div>
           <div className="fixed bottom-5 right-4 bg-transparent">
-            <button
+            <div
               style={
                 darkTheme
                   ? { backgroundColor: '#312b47' }
@@ -151,7 +151,7 @@ const NavBar = () => {
                   ></path>
                 </svg>
               )}
-            </button>
+            </div>
           </div>
         </div>
       </div>
