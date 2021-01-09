@@ -45,7 +45,7 @@ const NavBar = () => {
       <div className="flex flex-col items-center mx-auto sm:w-4/5 p-2">
         <div className="flex w-full items-center justify-between ">
           <div>
-            <NavLink exact to="/">
+            <NavLink exact to="/" activeClassName="text-purple-600">
               <svg
                 className="w-12 h-12"
                 fill="none"

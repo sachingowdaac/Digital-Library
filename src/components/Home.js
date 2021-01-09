@@ -17,6 +17,7 @@ const Home = () => {
           <label>
             <input
               type="text"
+              aria-label="Search"
               name="author"
               value={query.author || ''}
               onChange={handleChange}
