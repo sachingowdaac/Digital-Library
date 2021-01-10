@@ -6,7 +6,7 @@ import Pagination from './pagination';
 const Home = () => {
   const [query, setQuery] = useState('');
   const [offset, setOffset] = useState(0);
-  const [postsPerPage] = useState(8);
+  const [postsPerPage] = useState(12);
   const [pageCount] = useState(Math.ceil(Books.length / postsPerPage));
 
   const handleChange = ({ target }) => {
@@ -35,7 +35,7 @@ const Home = () => {
               value={query.author || ''}
               onChange={handleChange}
               placeholder="Search..."
-              className="dark:text-black bg-gray-300 w-full p-1 rounded border  focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="dark:text-black shadow w-full p-1 rounded border  focus:outline-none focus:ring-2 focus:ring-purple-600"
             />
           </label>
         </form>
