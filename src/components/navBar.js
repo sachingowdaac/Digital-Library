@@ -43,8 +43,8 @@ const NavBar = ({ userin }) => {
 
   return (
     <nav className="fixed top-0 w-full bg-white dark:bg-gray-900 h-16 shadow">
-      <div className="flex flex-col items-center mx-auto sm:w-4/5 p-2">
-        <div className="flex w-full items-center justify-between ">
+      <div className="items-center mx-auto sm:w-4/5 p-2">
+        <div className="flex justify-between">
           <div>
             <NavLink exact to="/" activeClassName="text-purple-600">
               <svg
@@ -63,53 +63,55 @@ const NavBar = ({ userin }) => {
               </svg>
             </NavLink>
           </div>
-          <div className={user ? 'block' : 'hidden'}>
-            <NavLink
-              exact
-              to="/"
-              activeClassName="font-black text-purple-600"
-              className="hover:text-purple-900"
-            >
-              Home
-            </NavLink>
-          </div>
-          <div>
-            <NavLink
-              exact
-              to="/about"
-              activeClassName="font-black text-purple-600"
-              className="hover:text-purple-900"
-            >
-              About
-            </NavLink>
-          </div>
-          <div className={user ? 'hidden' : 'block'}>
-            <NavLink
-              exact
-              to="/signup"
-              activeClassName="font-black text-purple-600"
-              className="hover:text-purple-900"
-            >
-              SignUp
-            </NavLink>
-          </div>
-          <div className={user ? 'hidden' : 'block'}>
-            <NavLink
-              exact
-              to={user ? '/' : '/login'}
-              activeClassName="font-black text-purple-600"
-              className="hover:text-purple-900"
-            >
-              Login
-            </NavLink>
-          </div>
-          <div className={user ? 'block' : 'hidden'}>
-            <button
-              className="p-2 bg-gray-500 rounded-full focus:outline-none focus:shadow-outline bg-transparent hover:bg-purple-500"
-              onClick={SignOut}
-            >
-              Logout
-            </button>
+          <div className="flex items-center justify-between space-x-5">
+            <div className={user ? 'block' : 'hidden'}>
+              <NavLink
+                exact
+                to="/"
+                activeClassName="font-black text-purple-600"
+                className="hover:text-purple-900"
+              >
+                Home
+              </NavLink>
+            </div>
+            <div>
+              <NavLink
+                exact
+                to="/about"
+                activeClassName="font-black text-purple-600"
+                className="hover:text-purple-900"
+              >
+                About
+              </NavLink>
+            </div>
+            <div className={user ? 'hidden' : 'block'}>
+              <NavLink
+                exact
+                to="/signup"
+                activeClassName="font-black text-purple-600"
+                className="hover:text-purple-900"
+              >
+                SignUp
+              </NavLink>
+            </div>
+            <div className={user ? 'hidden' : 'block'}>
+              <NavLink
+                exact
+                to={user ? '/' : '/login'}
+                activeClassName="font-black text-purple-600"
+                className="hover:text-purple-900"
+              >
+                Login
+              </NavLink>
+            </div>
+            <div className={user ? 'block' : 'hidden'}>
+              <button
+                className="p-1 rounded-full focus:outline-none focus:shadow-outline hover:bg-purple-500"
+                onClick={SignOut}
+              >
+                Logout
+              </button>
+            </div>
           </div>
           <div className="fixed bottom-5 right-4 bg-transparent">
             <div
