@@ -54,22 +54,6 @@ const SignUp = () => {
               onChange={handleChange}
               className="dark:text-black w-full p-2 border border-gray-400 rounded mt-1"
             />
-            <div className="flex items-center justify-between hidden">
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="h-4 v-4 text-blue-300 rounded"
-                />
-                <label className="ml-2 text-sm text-gray-600">
-                  Remember me
-                </label>
-              </div>
-              <div>
-                {/* <a className="font-medium text-sm text-blue-700">
-                  Forgot Password?
-                </a> */}
-              </div>
-            </div>
             <div>
               <button
                 type="submit"

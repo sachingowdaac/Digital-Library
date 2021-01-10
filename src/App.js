@@ -1,5 +1,10 @@
-import React, { lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { lazy, Suspense, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
 const About = lazy(() => import('./components/About'));
 const Footer = lazy(() => import('./components/footer'));
 const Home = lazy(() => import('./components/Home'));
@@ -7,13 +12,17 @@ const NavBar = lazy(() => import('./components/navBar'));
 const SignUp = lazy(() => import('./components/signup'));
 const Login = lazy(() => import('./components/login'));
 
-const renderLoader = () => <p>Loading</p>;
+const renderLoader = () => <p>Loading...</p>;
 const App = () => {
+  const [users, setUsers] = useState();
+  const user = (user) => {
+    setUsers(user);
+  };
   return (
     <div className="bg-white text-black dark:bg-gray-800 dark:text-white">
       <Router>
         <Suspense fallback={renderLoader()}>
-          <NavBar />
+          <NavBar userin={user} />
           <Switch>
             <Route path="/about">
               <About />
@@ -21,11 +30,9 @@ const App = () => {
             <Route path="/signup">
               <SignUp />
             </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/">
-              <Home />
+            <Route>
+              <Redirect to={users ? '/' : '/login'} />
+              {users ? <Home /> : <Login />}
             </Route>
           </Switch>
           <Footer />

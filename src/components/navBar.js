@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { SignOut } from './authentication';
 import { auth } from '../firebase';
 
-const NavBar = () => {
+const NavBar = ({ userin }) => {
   const [user, setUser] = useState();
   const [theme, setTheme] = useState(localStorage.theme);
   const [darkTheme, setDarkTheme] = useState(theme === 'dark' ? false : true);
@@ -38,6 +38,7 @@ const NavBar = () => {
       console.log('user sign out');
       setUser(false);
     }
+    userin(user);
   });
 
   return (
@@ -95,7 +96,7 @@ const NavBar = () => {
           <div className={user ? 'hidden' : 'block'}>
             <NavLink
               exact
-              to="/login"
+              to={user ? '/' : '/login'}
               activeClassName="font-black text-purple-600"
               className="hover:text-purple-900"
             >
