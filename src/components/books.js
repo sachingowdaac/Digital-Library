@@ -1,30 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import uuid from 'react-uuid';
-import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Collapse from '@material-ui/core/Collapse';
-
-const useStyles = makeStyles((theme) => ({
-  expand: {
-    transform: 'rotate(0deg)',
-    marginRight: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-}));
+import Modal from './Modal';
 
 const BooksComponent = ({ Books, query }) => {
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
   const items = Books.filter((data) => {
     if (query.author == null) {
       return data;
@@ -32,9 +12,14 @@ const BooksComponent = ({ Books, query }) => {
       return data.author.toLowerCase().indexOf(query.author) !== -1;
     }
   });
+  const handleOpen = (index) => {
+    console.log(index);
+    setIsOpen(true);
+  };
+  console.log(isOpen);
   return (
     <div className="flex flex-wrap mb-5 items-center justify-center">
-      {items.map((data) => {
+      {items.map((data, index) => {
         const { author, country, imageLink, pages, link, title, year } = data;
         return (
           <div
@@ -49,19 +34,27 @@ const BooksComponent = ({ Books, query }) => {
                 alt={author}
               />
             </div>
-            <div className="p-2">
+            <div className="flex p-2 justify-between">
               <h1 className="text-xl overflow-hidden">Author: {author}</h1>
-              <IconButton
-                className={clsx(classes.expand, {
-                  [classes.expandOpen]: expanded,
-                })}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </IconButton>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
+              <button onClick={() => handleOpen(index)}>
+                <svg
+                  className="w-6 h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+              <div className="p-3">
                 <a href={link} rel="noreferrer" target="_blank">
                   <p className="font-bold text-purple-900  text-xl">
                     Title: {title}
@@ -72,8 +65,8 @@ const BooksComponent = ({ Books, query }) => {
                   <span>Country-{country} </span>
                   <span>Pages-{pages}</span>
                 </div>
-              </Collapse>
-            </div>
+              </div>
+            </Modal>
           </div>
         );
       })}
