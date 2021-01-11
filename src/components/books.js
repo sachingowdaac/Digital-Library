@@ -13,21 +13,14 @@ const BooksComponent = ({ Books, query }) => {
       return data.author.toLowerCase().indexOf(query.author) !== -1;
     }
   });
-  console.log(items[0]);
-  const selectedItem = items[selected];
-  // filter((data, index) => {
-  //   if (selected === data.index) {
-  //     return data.selected;
-  //   } else {
-  //     return null;
-  //   }
-  // });
-  console.log(selectedItem);
+
+  const selectedItem = Books[selected];
+
   const handleOpen = (index) => {
     setSelected(index);
     setIsOpen(true);
   };
-  console.log(isOpen);
+
   return (
     <div className="flex flex-wrap mb-5 items-center justify-center">
       {items.map((data, index) => {
@@ -71,41 +64,7 @@ const BooksComponent = ({ Books, query }) => {
         open={isOpen}
         onClose={() => setIsOpen(false)}
         selectedItems={selectedItem}
-      >
-        {/* {selectedItem.map((data, index) => { */}
-        {/* const { author, country, imageLink, pages, link, title, year } = selectedItem; */}
-        {/* return ( */}
-        {/* <div */}
-        {/* key={uuid()} */}
-        {/* className="grid mt-16 w-80 md:w-48 m-5 rounded-lg shadow-2xl overflow-hidden" */}
-        {/* > */}
-        {/* <div>
-                <img
-                  loading="lazy"
-                  className="object-fit h-64 w-80 md:w-48 overflow-hidden"
-                  src={imageLink}
-                  alt={author}
-                />
-              </div> */}
-        {/* <div className="flex p-2 justify-between">
-                <h1 className="text-xl overflow-hidden">Author: {author}</h1>
-              </div>
-              <div className="p-3">
-                <a href={link} rel="noreferrer" target="_blank">
-                  <p className="font-bold text-purple-900  text-xl">
-                    Title: {title}
-                  </p>
-                </a>
-                <div className="font-black">
-                  <span>Year-{year} </span>
-                  <span>Country-{country} </span>
-                  <span>Pages-{pages}</span>
-                </div>
-              </div>
-            </div> */}
-        {/* ); */}
-        {/* })} */}
-      </Modal>
+      />
     </div>
   );
 };
