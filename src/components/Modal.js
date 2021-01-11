@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 
-const Modal = ({ open, children, onClose }) => {
+const Modal = ({ open, children, onClose, selectedItems }) => {
+  const {
+    imageLink,
+    author,
+    pages,
+    country,
+    link,
+    title,
+    year,
+  } = selectedItems;
+  console.log(selectedItems);
   const [addToCart, setAddToCart] = useState(false);
   if (!open) return null;
   return (
@@ -8,6 +18,30 @@ const Modal = ({ open, children, onClose }) => {
       <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-800 bg-opacity-10 z-50">
         <div className="fixed top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 p-5 z-10 bg-white">
           {children}
+          <div>
+            <img
+              loading="lazy"
+              className="object-fit h-64 w-80 md:w-48 overflow-hidden"
+              src={imageLink}
+              alt={author}
+            />
+          </div>
+          <div>
+            <h1 className="text-xl p-2">Author: {author}</h1>
+            <div className="p-2">
+              <a href={link} rel="noreferrer" target="_blank">
+                <p className="font-bold text-purple-900  text-xl">
+                  Title: {title}
+                </p>
+              </a>
+              <div className="font-black">
+                <span>Year-{year} </span>
+                <span>Country-{country} </span>
+                <span>Pages-{pages}</span>
+              </div>
+            </div>
+          </div>
+          <hr className="m-2" />
           <div className="flex justify-between">
             <button onClick={onClose}>
               <svg
