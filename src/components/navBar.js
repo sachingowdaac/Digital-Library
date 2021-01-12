@@ -84,12 +84,13 @@ const NavBar = ({ userin }) => {
                 About
               </NavLink>
             </div>
-            <div>
+            <div className={user ? 'block' : ''}>
               <NavLink
                 exact
                 to="/mybooks"
                 activeClassName="font-black text-purple-600"
                 className="hover:text-purple-900"
+                title="My books"
               >
                 <svg
                   className="w-6 h-6"

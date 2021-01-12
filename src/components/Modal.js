@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { db } from '../firebase';
 
 const Modal = ({ open, children, onClose, selectedItems }) => {
   const {
@@ -11,7 +12,18 @@ const Modal = ({ open, children, onClose, selectedItems }) => {
     imageLink,
   } = selectedItems;
 
-  const [addToCart, setAddToCart] = useState(false);
+  const [addToCart, setAddToCart] = useState(true);
+  const handleCart = () => {
+    setAddToCart((prev) => !prev);
+    addBooksToDb();
+  };
+  const addBooksToDb = () => {
+    if (addToCart) {
+      db.collection('MyBooks').add(selectedItems);
+      return alert('Book add to cart');
+    }
+  };
+
   if (!open) return null;
   return (
     <>
@@ -60,23 +72,8 @@ const Modal = ({ open, children, onClose, selectedItems }) => {
                   />
                 </svg>
               </button>
-              <button onClick={() => setAddToCart((prev) => !prev)}>
+              <button onClick={handleCart}>
                 {addToCart ? (
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                    ></path>
-                  </svg>
-                ) : (
                   <svg
                     className="w-7 h-7"
                     fill="none"
@@ -89,6 +86,21 @@ const Modal = ({ open, children, onClose, selectedItems }) => {
                       strokeLinejoin="round"
                       strokeWidth={2}
                       d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                     ></path>
                   </svg>
                 )}

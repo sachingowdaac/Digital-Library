@@ -11,6 +11,7 @@ const Home = lazy(() => import('./components/Home'));
 const NavBar = lazy(() => import('./components/navBar'));
 const SignUp = lazy(() => import('./components/signup'));
 const Login = lazy(() => import('./components/login'));
+const Mybooks = lazy(() => import('./components/mybooks'));
 
 const renderLoader = () => <p>Loading...</p>;
 const App = () => {
@@ -26,6 +27,9 @@ const App = () => {
           <Switch>
             <Route path="/about">
               <About />
+            </Route>
+            <Route path="/mybooks">
+              <Mybooks />
             </Route>
             <Route path="/signup">
               <SignUp />

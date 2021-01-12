@@ -40,7 +40,7 @@ const BooksComponent = ({ Books, query }) => {
             </div>
             <div className="flex p-2 justify-between">
               <h1 className="text-xl overflow-hidden">Author: {author}</h1>
-              <button onClick={() => handleOpen(index)}>
+              <button title="Details" onClick={() => handleOpen(index)}>
                 <svg
                   className="w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
