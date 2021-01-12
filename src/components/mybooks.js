@@ -1,25 +1,13 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
+import React from 'react';
+import useDB from '../utilities/useDB';
 
 const MyBooksCart = () => {
-  const [books, setBooks] = useState();
-
-  db.collection('MyBooks')
-    .get()
-    .then((snapshot) => {
-      const books = [];
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        books.push(data);
-      });
-      setBooks(books);
-    });
-
+  const { books } = useDB();
   return (
     <div className="min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
       <div className="flex flex-wrap mt-20 items-center justify-center">
         {books &&
-          books.map((book, id) => {
+          books.map((book, index) => {
             const {
               author,
               pages,
@@ -31,7 +19,7 @@ const MyBooksCart = () => {
             } = book;
             return (
               <div
-                key={id}
+                key={index}
                 className="grid w-80 m-5 rounded-lg shadow-2xl overflow-hidden"
               >
                 <div>
