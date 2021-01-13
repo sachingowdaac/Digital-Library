@@ -4,17 +4,13 @@ import { db } from '../firebase';
 const useDB = () => {
   const [books, setBooks] = useState(null);
   useEffect(() => {
-    db.collection('MyBooks')
-      .get()
-      .then((snapshot) => {
-        const books = [];
-        snapshot.forEach((doc) => {
-          const data = doc.data();
-          books.push(data);
-        });
-        setBooks(books);
-      });
-  }, []);
+    const fetchData = async () => {
+      const data = await db.collection('MyBooks').get();
+      setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    fetchData();
+    return () => null;
+  }, [books]);
 
   return { books };
 };

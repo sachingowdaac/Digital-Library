@@ -4,7 +4,7 @@ import Modal from './Modal';
 
 const BooksComponent = ({ Books, query }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState();
 
   const items = Books.filter((data) => {
     if (query.author == null) {
@@ -14,10 +14,9 @@ const BooksComponent = ({ Books, query }) => {
     }
   });
 
-  const selectedItem = Books[selected];
-
-  const handleOpen = (index) => {
-    setSelected(index);
+  const handleOpen = (id) => {
+    const item = Books.filter((book, index) => index === id);
+    setSelected(item);
     setIsOpen(true);
   };
 
@@ -63,7 +62,7 @@ const BooksComponent = ({ Books, query }) => {
       <Modal
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        selectedItems={selectedItem}
+        selectedItems={selected}
       />
     </div>
   );
