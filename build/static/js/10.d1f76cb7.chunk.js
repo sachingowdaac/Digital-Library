@@ -1,2 +1,0 @@
-(this["webpackJsonpbooks-library"]=this["webpackJsonpbooks-library"]||[]).push([[10],{90:function(e,s,t){"use strict";t.r(s);var c=t(2);t(0);s.default=function(){return Object(c.jsxs)("div",{className:"text-center",children:[Object(c.jsx)("hr",{}),Object(c.jsxs)("div",{className:"p-2 w-4/5 mx-auto",children:[Object(c.jsx)("p",{children:"Copyright \xa9 2020"}),Object(c.jsx)("p",{children:"Created by Sachin with love"})]})]})}}}]);
-//# sourceMappingURL=10.d1f76cb7.chunk.js.map

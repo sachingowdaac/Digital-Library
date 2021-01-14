@@ -7,6 +7,7 @@ const MyBooksCart = () => {
   const handleDelete = (id) => {
     db.collection('MyBooks').doc(id).delete();
   };
+
   return (
     <div className="min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
       <div className="flex flex-wrap mt-20 items-center justify-center">
@@ -54,7 +55,11 @@ const MyBooksCart = () => {
                     </div>
                   </div>
                   <div>
-                    <button title="Delete" onClick={() => handleDelete(id)}>
+                    <button
+                      title="Delete"
+                      onClick={() => handleDelete(id)}
+                      className="p-1 rounded-full bg-transparent bg-gray-400 focus:outline-none focus:shadow-outline hover:bg-purple-500"
+                    >
                       <svg
                         className="w-6 h-6"
                         fill="none"

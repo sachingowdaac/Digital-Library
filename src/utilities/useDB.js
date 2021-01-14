@@ -9,8 +9,7 @@ const useDB = () => {
       setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
     fetchData();
-    return () => null;
-  }, [books]);
+  });
 
   return { books };
 };

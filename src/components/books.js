@@ -16,7 +16,7 @@ const BooksComponent = ({ Books, query }) => {
 
   const handleOpen = (id) => {
     const item = Books.filter((book, index) => index === id);
-    setSelected(item);
+    setSelected(item.map((b) => ({ ...b, uuid: uuid() })));
     setIsOpen(true);
   };
 

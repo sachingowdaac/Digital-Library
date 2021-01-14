@@ -84,7 +84,7 @@ const NavBar = ({ userin }) => {
                 About
               </NavLink>
             </div>
-            <div className={user ? 'block' : ''}>
+            <div className={user ? 'block' : 'hidden'}>
               <NavLink
                 exact
                 to="/mybooks"
