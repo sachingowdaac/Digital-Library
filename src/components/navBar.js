@@ -86,14 +86,13 @@ const NavBar = ({ userin }) => {
               </NavLink>
             </div>
             <div className={user ? 'block' : 'hidden'}>
-              <Tooltip title="My Books" placement="bottom" arrow>
-                <NavLink
-                  exact
-                  to="/mybooks"
-                  activeClassName="font-black text-purple-600"
-                  className="hover:text-purple-900"
-                  title="My books"
-                >
+              <NavLink
+                exact
+                to="/mybooks"
+                activeClassName="font-black text-purple-600"
+                className="hover:text-purple-900"
+              >
+                <Tooltip title="My Books" placement="bottom" arrow>
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -108,8 +107,8 @@ const NavBar = ({ userin }) => {
                       d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
                     ></path>
                   </svg>
-                </NavLink>
-              </Tooltip>
+                </Tooltip>
+              </NavLink>
             </div>
             <div className={user ? 'hidden' : 'block'}>
               <NavLink
@@ -141,16 +140,16 @@ const NavBar = ({ userin }) => {
             </div>
           </div>
           <div className="fixed bottom-5 right-4 bg-transparent">
-            <Tooltip title="Toggle to Dark/light" arrow>
-              <div
-                style={
-                  darkTheme
-                    ? { backgroundColor: '#312b47' }
-                    : { backgroundColor: '#0073e5' }
-                }
-                className="p-2 w-10 h-10 bg-purple-700 rounded-full focus:outline-none  bg-transparent text-white hover:bg-purple-900"
-                onClick={changeTheme}
-              >
+            <div
+              style={
+                darkTheme
+                  ? { backgroundColor: '#312b47' }
+                  : { backgroundColor: '#0073e5' }
+              }
+              className="p-2 w-10 h-10 bg-purple-700 rounded-full focus:outline-none  bg-transparent text-white hover:bg-purple-900"
+              onClick={changeTheme}
+            >
+              <Tooltip title="Toggle to Dark/light" arrow>
                 {darkTheme ? (
                   <svg
                     className="w-6 h-6"
@@ -182,8 +181,8 @@ const NavBar = ({ userin }) => {
                     ></path>
                   </svg>
                 )}
-              </div>
-            </Tooltip>
+              </Tooltip>
+            </div>
           </div>
         </div>
       </div>
