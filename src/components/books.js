@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import uuid from 'react-uuid';
 import Modal from './Modal';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const BooksComponent = ({ Books, query }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,21 +40,23 @@ const BooksComponent = ({ Books, query }) => {
             </div>
             <div className="flex p-2 justify-between">
               <h1 className="text-xl overflow-hidden">Author: {author}</h1>
-              <button title="Details" onClick={() => handleOpen(index)}>
-                <svg
-                  className="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                  />
-                </svg>
+              <button onClick={() => handleOpen(index)}>
+                <Tooltip title="Details" placement="bottom" arrow>
+                  <svg
+                    className="w-6 h-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                    />
+                  </svg>
+                </Tooltip>
               </button>
             </div>
           </div>
