@@ -10,7 +10,8 @@ const useDB = () => {
     };
 
     fetchData();
-  });
+    return () => fetchData;
+  }, [setBooks, books]);
 
   return { books };
 };
