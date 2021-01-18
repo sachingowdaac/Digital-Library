@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { SignOut } from './authentication';
 import { auth } from '../firebase';
-import Tooltip from '@material-ui/core/Tooltip';
+import ReactTooltip from 'react-tooltip';
 
 const NavBar = ({ userin }) => {
   const [user, setUser] = useState();
@@ -33,10 +33,8 @@ const NavBar = ({ userin }) => {
 
   auth.onAuthStateChanged((user) => {
     if (user) {
-      console.log('user loged in');
       setUser(true);
     } else {
-      console.log('user sign out');
       setUser(false);
     }
     userin(user);
@@ -85,30 +83,35 @@ const NavBar = ({ userin }) => {
                 About
               </NavLink>
             </div>
-            <div className={user ? 'block' : 'hidden'}>
+            <div
+              data-tip
+              data-for="mybooks"
+              className={user ? 'block' : 'hidden'}
+            >
               <NavLink
                 exact
                 to="/mybooks"
                 activeClassName="font-black text-purple-600"
                 className="hover:text-purple-900"
               >
-                <Tooltip title="My Books" placement="bottom" arrow>
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                    ></path>
-                  </svg>
-                </Tooltip>
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                  ></path>
+                </svg>
               </NavLink>
+              <ReactTooltip id="mybooks" place="right" effect="solid">
+                My Books
+              </ReactTooltip>
             </div>
             <div className={user ? 'hidden' : 'block'}>
               <NavLink
@@ -141,6 +144,8 @@ const NavBar = ({ userin }) => {
           </div>
           <div className="fixed bottom-5 right-4 bg-transparent">
             <div
+              data-tip
+              data-for="toggle"
               style={
                 darkTheme
                   ? { backgroundColor: '#312b47' }
@@ -149,39 +154,40 @@ const NavBar = ({ userin }) => {
               className="p-2 w-10 h-10 bg-purple-700 rounded-full focus:outline-none  bg-transparent text-white hover:bg-purple-900"
               onClick={changeTheme}
             >
-              <Tooltip title="Toggle to Dark/light" arrow>
-                {darkTheme ? (
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    ></path>
-                  </svg>
-                ) : (
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    ></path>
-                  </svg>
-                )}
-              </Tooltip>
+              {darkTheme ? (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  ></path>
+                </svg>
+              ) : (
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              )}
+              <ReactTooltip id="toggle" place="top" effect="solid">
+                Toggle to Dark/light
+              </ReactTooltip>
             </div>
           </div>
         </div>

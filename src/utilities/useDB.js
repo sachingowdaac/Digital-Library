@@ -8,6 +8,7 @@ const useDB = () => {
       const data = await db.collection('MyBooks').get();
       setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
+
     fetchData();
   });
 

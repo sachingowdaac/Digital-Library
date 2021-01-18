@@ -10,7 +10,7 @@ const MyBooksCart = () => {
 
   return (
     <div className="min-h-0 mb-5 items-center justify-center mt-16 md:w-4/5 mx-auto">
-      <div className="flex flex-wrap mt-20 items-center justify-center">
+      <div className="flex flex-wrap items-center justify-center">
         {books &&
           books.map((book, index) => {
             const {
