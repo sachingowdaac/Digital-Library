@@ -68,6 +68,8 @@ const Login = () => {
             >
               <span>
                 <img
+                  width={40}
+                  height={40}
                   src="https://img.icons8.com/fluent/48/000000/google-logo.png"
                   alt="google"
                 />
