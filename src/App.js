@@ -5,6 +5,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+
 const About = lazy(() => import('./components/About'));
 const Footer = lazy(() => import('./components/footer'));
 const Home = lazy(() => import('./components/Home'));
@@ -12,6 +13,7 @@ const NavBar = lazy(() => import('./components/navBar'));
 const SignUp = lazy(() => import('./components/signup'));
 const Login = lazy(() => import('./components/login'));
 const Mybooks = lazy(() => import('./components/mybooks'));
+const BooksDetails = lazy(() => import('./components/booksDetails'));
 
 const renderLoader = () => <p>Loading...</p>;
 const App = () => {
@@ -33,6 +35,9 @@ const App = () => {
             </Route>
             <Route path="/signup">
               <SignUp />
+            </Route>
+            <Route path="/details:author">
+              <BooksDetails />
             </Route>
             <Route>
               <Redirect to={users ? '/' : '/login'} />

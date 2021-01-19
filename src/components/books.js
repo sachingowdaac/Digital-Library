@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import uuid from 'react-uuid';
 import Modal from './Modal';
 import ReactTooltip from 'react-tooltip';
+import { NavLink } from 'react-router-dom';
 const BooksComponent = ({ Books, query }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState();
@@ -38,7 +39,9 @@ const BooksComponent = ({ Books, query }) => {
               />
             </div>
             <div className="flex p-2 justify-between">
-              <h1 className="text-xl overflow-hidden">Author: {author}</h1>
+              <NavLink to={`/details${author}`}>
+                <h1 className="text-xl overflow-hidden">Author: {author}</h1>
+              </NavLink>
               <button
                 data-tip
                 data-for="details"
