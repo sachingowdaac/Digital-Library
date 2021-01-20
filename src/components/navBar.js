@@ -63,7 +63,7 @@ const NavBar = ({ userin }) => {
             </NavLink>
           </div>
           <div className="flex items-center justify-between space-x-5">
-            <div className={user ? 'block' : 'hidden'}>
+            <div>
               <NavLink
                 exact
                 to="/"

@@ -39,9 +39,12 @@ const App = () => {
             <Route path="/details:author">
               <BooksDetails />
             </Route>
-            <Route>
-              <Redirect to={users ? '/' : '/login'} />
+            <Route path="/login">
+              {users && <Redirect to="/" />}
               {users ? <Home /> : <Login />}
+            </Route>
+            <Route path="/">
+              <Home />
             </Route>
           </Switch>
           <Footer />
